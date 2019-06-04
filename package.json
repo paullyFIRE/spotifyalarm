@@ -1,0 +1,43 @@
+{
+  "name": "spotifyalarm",
+  "scripts": {
+    "android": "react-native run-android",
+    "ios": "react-native run-ios",
+    "start": "react-native start",
+    "test": "jest",
+    "postinstall": "cp -R scripts/rn-renderer/* ./node_modules/react-native/Libraries/Renderer"
+  },
+  "dependencies": {
+    "appcenter": "1.13.0",
+    "expo-brightness": "^5.0.0",
+    "expo-font": "^4.0.0",
+    "expo-keep-awake": "^5.0.0",
+    "lottie-react-native": "^2.6.1",
+    "moment": "^2.24.0",
+    "react": "16.8",
+    "react-native": "0.58.6",
+    "react-native-gesture-handler": "^1.2.1",
+    "react-native-modal-datetime-picker": "^7.4.2",
+    "react-native-size-matters": "^0.2.1",
+    "react-native-unimodules": "0.3.1",
+    "react-native-vector-icons": "^6.4.2",
+    "react-navigation": "^3.11.0",
+    "react-redux": "^7.0.3",
+    "reactotron-react-native": "^3.6.0",
+    "reactotron-redux": "^3.1.0",
+    "redux": "^4.0.1",
+    "redux-persist": "^5.10.0",
+    "redux-thunk": "^2.3.0",
+    "rn-spotify-sdk": "^1.2.9"
+  },
+  "devDependencies": {
+    "babel-jest": "24.1.0",
+    "jest": "24.1.0",
+    "metro-react-native-babel-preset": "0.52.0",
+    "react-test-renderer": "16.6.3"
+  },
+  "jest": {
+    "preset": "react-native"
+  },
+  "private": true
+}
