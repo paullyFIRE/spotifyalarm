@@ -9,16 +9,13 @@ import {
 import Containers from '../containers'
 import FeatherIcon from 'react-native-vector-icons/Feather'
 import React from 'react'
+import { TouchableOpacity } from 'react-native'
 import { connect } from 'react-redux'
-import moment from 'moment'
 
 const MoreMenuIcon = withNavigation(({ navigation }) => (
-  <FeatherIcon
-    name="menu"
-    size={Metrics.base * 4}
-    color={Colors.white}
-    onPress={() => navigation.navigate('MenuMore')}
-  />
+  <TouchableOpacity onPress={() => navigation.navigate('MenuMore')}>
+    <FeatherIcon name="menu" size={Metrics.base * 4} color={Colors.white} />
+  </TouchableOpacity>
 ))
 
 const unAuthed = createStackNavigator(
@@ -26,7 +23,7 @@ const unAuthed = createStackNavigator(
     Login: {
       screen: Containers.Login,
       navigationOptions: () => ({
-        title: 'Login'
+        title: 'Welcome'
       })
     }
   },

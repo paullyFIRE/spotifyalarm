@@ -12,5 +12,17 @@ export default StyleSheet.create({
   },
   loginButtonContainer: {
     marginBottom: Metrics.base * 8
+  },
+  upperContainer: {
+    flex: 1,
+    justifyContent: 'flex-end'
+  },
+  lowerContainer: {
+    flex: 2,
+    alignItems: 'center'
+  },
+  pulsingWave: {
+    width: '100%',
+    height: Metrics.base * 20
   }
 })

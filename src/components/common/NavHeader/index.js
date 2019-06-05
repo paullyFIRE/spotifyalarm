@@ -2,12 +2,11 @@ import { Colors, Fonts, Helpers, Metrics } from '../../../config/Constants'
 import { StatusBar, StyleSheet, Text, View } from 'react-native'
 
 import React from 'react'
-import { SimpleHeader } from '../../'
 
 const Styles = StyleSheet.create({
   container: {
     width: '100%',
-    paddingTop: Metrics.base * ((Helpers.isIphoneX ? 4 : 0) + 2),
+    paddingTop: Metrics.base * ((Helpers.isIphoneX ? 2 : 0) + 4),
     backgroundColor: Colors.background
   },
   headerContainer: {
