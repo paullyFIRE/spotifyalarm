@@ -10,6 +10,7 @@ export default StyleSheet.create({
     borderWidth: 2,
     alignItems: 'center',
     justifyContent: 'center',
+    // TODO: Increase Padding
     padding: Metrics.base
   },
   selectText: {

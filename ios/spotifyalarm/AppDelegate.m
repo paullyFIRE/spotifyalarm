@@ -15,6 +15,7 @@
 #import <UMReactNativeAdapter/UMModuleRegistryAdapter.h>
 
 #import "AppCenterReactNative.h"
+#import <CodePush/CodePush.h>
 
 @implementation AppDelegate
 
@@ -48,7 +49,7 @@
 #ifdef DEBUG
   return [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index" fallbackResource:nil];
 #else
-  return [[NSBundle mainBundle] URLForResource:@"main" withExtension:@"jsbundle"];
+  return [CodePush bundleURL];
 #endif
 }
 

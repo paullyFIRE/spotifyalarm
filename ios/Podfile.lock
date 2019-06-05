@@ -5,7 +5,13 @@ PODS:
   - AppCenter/Core (2.0.1)
   - AppCenterReactNativeShared (2.0.0):
     - AppCenter/Core (= 2.0.1)
+  - Base64 (1.1.2)
   - boost-for-react-native (1.63.0)
+  - CodePush (5.6.0):
+    - Base64 (~> 1.1)
+    - JWT (~> 3.0.0-beta.7)
+    - React
+    - SSZipArchive (~> 2.1)
   - DoubleConversion (1.1.6)
   - EXAppLoaderProvider (4.0.0)
   - EXBrightness (5.0.0):
@@ -29,6 +35,8 @@ PODS:
     - DoubleConversion
     - glog
   - glog (0.3.5)
+  - JWT (3.0.0-beta.11):
+    - Base64 (~> 1.1.2)
   - lottie-ios (2.5.0)
   - lottie-react-native (2.6.1):
     - lottie-ios (~> 2.5.0)
@@ -91,6 +99,7 @@ PODS:
     - RNEventEmitter
   - RNVectorIcons (6.4.2):
     - React
+  - SSZipArchive (2.2.2)
   - UMBarCodeScannerInterface (1.0.0)
   - UMCameraInterface (1.0.0)
   - UMConstantsInterface (1.0.0)
@@ -110,6 +119,7 @@ PODS:
 
 DEPENDENCIES:
   - appcenter (from `../node_modules/appcenter/ios`)
+  - CodePush (from `../node_modules/react-native-code-push`)
   - DoubleConversion (from `../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec`)
   - EXAppLoaderProvider (from `../node_modules/expo-app-loader-provider/ios`)
   - EXBrightness (from `../node_modules/expo-brightness/ios`)
@@ -158,11 +168,16 @@ SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - AppCenter
     - AppCenterReactNativeShared
+    - Base64
     - boost-for-react-native
+    - JWT
+    - SSZipArchive
 
 EXTERNAL SOURCES:
   appcenter:
     :path: "../node_modules/appcenter/ios"
+  CodePush:
+    :path: "../node_modules/react-native-code-push"
   DoubleConversion:
     :podspec: "../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec"
   EXAppLoaderProvider:
@@ -247,7 +262,9 @@ SPEC CHECKSUMS:
   AppCenter: 6a5ff2fd007b53431259fdd74f91eb3d0dfea3d1
   appcenter: 90f03022968d299d5c11a9488ac20fc2009098ea
   AppCenterReactNativeShared: a55d6899b99ca2c4904cffd82b2d687626afe251
+  Base64: cecfb41a004124895a7bcee567a89bae5a89d49b
   boost-for-react-native: 39c7adb57c4e60d6c5479dd8623128eb5b3f0f2c
+  CodePush: 300e90b3481fa82569090406165b83745de3613a
   DoubleConversion: bb338842f62ab1d708ceb63ec3d999f0f3d98ecd
   EXAppLoaderProvider: a5b88a7e02f92807ad3cd962bb3e0632d71cc5dc
   EXBrightness: bf95e6eec3b9d5ba965e2dbf236d913884dd555a
@@ -258,6 +275,7 @@ SPEC CHECKSUMS:
   EXPermissions: ce3e170052df9d496aa51e1c372080cb2508fb16
   Folly: de497beb10f102453a1afa9edbf8cf8a251890de
   glog: aefd1eb5dda2ab95ba0938556f34b98e2da3a60d
+  JWT: 05028b9624591bba9681bb57df2c5f95fa258bad
   lottie-ios: d699fdee68d7b63e721d949388b015fef1aaa4ac
   lottie-react-native: 3d8181d43619b1fe804c828bd5a09d20fe8bdea7
   React: 130b87b2d5e2baac646954282cab87be986d98fc
@@ -265,6 +283,7 @@ SPEC CHECKSUMS:
   RNGestureHandler: 5329a942fce3d41c68b84c2c2276ce06a696d8b0
   RNSpotify: 54ebe44c6b3f87886205e87f151fed19cef4802d
   RNVectorIcons: 6607bd3a30291d0edb56f9bbe7ae411ee2b928b0
+  SSZipArchive: fa16b8cc4cdeceb698e5e5d9f67e9558532fbf23
   UMBarCodeScannerInterface: 53fd3cbf24fe5c58f3ba82ac8c27f0373fbf52fa
   UMCameraInterface: d5a2727e76d6b47e3201f863102c055ddbcc6206
   UMConstantsInterface: 800fb8f95fca9bb2c18ae554e4cb4df4383f6cbf
@@ -279,6 +298,6 @@ SPEC CHECKSUMS:
   UMTaskManagerInterface: f88793bd35248182e15591e0aa5b045132312be0
   yoga: 32d7ef1081951e9a35a4c72a7be797598b138a48
 
-PODFILE CHECKSUM: 6b35761007bb0af9db9dbb9a4324348c7415612f
+PODFILE CHECKSUM: fb4ef7d3eae8ebe5faf25b00c1250157c35e1531
 
 COCOAPODS: 1.7.1
