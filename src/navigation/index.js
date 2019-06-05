@@ -82,8 +82,8 @@ const authed = createStackNavigator(
   }
 )
 
-const RootNavigation = ({ isAuthed }) => {
-  const isAuthValid = !!isAuthed && new Date(isAuthed.expireTime) > new Date()
+const RootNavigation = ({ authExpireTime }) => {
+  const isAuthValid = authExpireTime && new Date(authExpireTime) > new Date()
   const initialRoute = isAuthValid ? 'Authed' : 'UnAuthed'
 
   const Root = createAppContainer(
@@ -105,7 +105,7 @@ const RootNavigation = ({ isAuthed }) => {
 }
 
 const mapStateToProps = state => ({
-  isAuthed: state.persisted.auth
+  authExpireTime: state.persisted.auth.expireTime
 })
 
 export default connect(mapStateToProps)(RootNavigation)

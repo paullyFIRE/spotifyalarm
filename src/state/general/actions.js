@@ -1,3 +1,4 @@
+import { loginRequest, logout } from './auth/actions'
 import {
   startAlarm,
   startAlarmTimer,
@@ -7,10 +8,9 @@ import {
 } from './alarm/actions'
 import { startPlayback, stopPlayback } from './playback/actions'
 
-import { loginRequest } from './auth/actions'
-
 export default {
   loginRequest,
+  logout,
   startPlayback,
   stopPlayback,
   startAlarm,

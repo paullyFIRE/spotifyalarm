@@ -6,8 +6,10 @@ import { StyleSheet, Text, TouchableOpacity } from 'react-native'
 import Anticon from 'react-native-vector-icons/AntDesign'
 import { Container } from '../../components'
 import FontAwesome5Icon from 'react-native-vector-icons/FontAwesome5'
+import { GeneralActions } from '../../state'
 import Octicon from 'react-native-vector-icons/Octicons'
 import React from 'react'
+import { connect } from 'react-redux'
 
 const Styles = StyleSheet.create({
   menuButton: {
@@ -29,7 +31,7 @@ const Styles = StyleSheet.create({
   }
 })
 
-const MenuMore = ({ navigation }) => {
+const MenuMore = ({ navigation, logout }) => {
   const menuConfig = [
     {
       title: 'Settings',
@@ -77,8 +79,8 @@ const MenuMore = ({ navigation }) => {
     },
     {
       title: 'Logout',
-      onPress: () => {
-        SpotifyApi.logout()
+      onPress: async () => {
+        await logout()
         navigation.navigate('Login')
       },
       renderIcon: () => (
@@ -103,4 +105,11 @@ const MenuMore = ({ navigation }) => {
   )
 }
 
-export default MenuMore
+const mapDispatchToProsp = dispatch => ({
+  logout: payload => dispatch(GeneralActions.logout(payload))
+})
+
+export default connect(
+  null,
+  mapDispatchToProsp
+)(MenuMore)
