@@ -109,6 +109,7 @@ class SpotifyService {
   }
 
   getCurrentSong = () => SpotifyApi.getCurrentSongMeta()
+  logout = () => SpotifyApi.logout()
   getUser = () => SpotifyApi.getUser()
   getUserPlaylists = () => SpotifyApi.getUserPlaylists()
   getPlaylistTracks = () => SpotifyApi.getPlaylistTracks()

@@ -1,4 +1,5 @@
 import {
+  CLEAR_PERSISTED_ALARM,
   CLEAR_SELECTED_TRACK,
   PLAYBACK_TYPES,
   UPDATE_ALARM_TIME,
@@ -52,6 +53,10 @@ export default (state = INITIAL_STATE, action) => {
       return {
         ...state,
         selectedTrack: null
+      }
+    case CLEAR_PERSISTED_ALARM:
+      return {
+        ...INITIAL_STATE
       }
     default:
       return state

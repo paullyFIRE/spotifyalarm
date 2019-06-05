@@ -6,6 +6,18 @@ export const LOGIN_FAILURE = 'LOGIN_FAILURE'
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS'
 export const LOGOUT = 'LOGOUT'
 
+export const logout = payload => async dispatch => {
+  dispatch({ type: LOGOUT })
+
+  // TODO: Actually log out of the SpotifyApi Auth.
+
+  SpotifyService.logout()
+  dispatch(PersistedActions.clearAuth())
+  dispatch(PersistedActions.clearPlaylists())
+  dispatch(PersistedActions.clearPersistedAlarm())
+  return Promise.resolve()
+}
+
 export const loginSuccess = payload => ({
   type: LOGIN_SUCCESS,
   payload
