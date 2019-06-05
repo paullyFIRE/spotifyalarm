@@ -71,8 +71,8 @@ class SpotifyService {
 
   volumeFadeIn = () => {
     const VOLUME_INCREMENT_INTERVALS = 1000 / 8
-    const FADE_IN_TIME = 1000 * 34
-    const START_VOLUME = 0.15
+    const FADE_IN_TIME = 1000 * 60
+    const START_VOLUME = 0.0
     const ALARM_VOLUME = 1
     const VOLUME_INCREMENT = ALARM_VOLUME / (FADE_IN_TIME / VOLUME_INCREMENT_INTERVALS)
 

@@ -16,7 +16,7 @@ const Colors = {
   secondaryBackground: '#112842',
   grey: '#e9e9e9',
   grey2: '#c9c9c9',
-  white: '#FFF',
+  white: '#f5f5f5',
   black: '#000'
 }
 

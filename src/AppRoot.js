@@ -1,35 +1,24 @@
-import React, { useState } from 'react'
-import { Text, View } from 'react-native'
+import React, { useEffect, useState } from 'react'
 
+import AppNavigation from './navigation'
 import Containers from './containers'
-
-// import AppNavigation from './navigation'
-
-// import { SpotifyService } from './services'
-
-// const AppRoot = () => {
-//   const [appReady, setAppReady] = useState(false)
-
-//   useEffect(() => {
-//     SpotifyService.initializeClient().then(status => setAppReady(true))
-//   }, [])
-
-//   if (!appReady) return null
-
-//   return (
-//     <React.Fragment>
-//       <Containers.ActiveAlarmModal />
-//       <AppNavigation />
-//     </React.Fragment>
-//   )
-// }
-
-// export default AppRoot
+import { SpotifyService } from './services'
 
 const AppRoot = () => {
-  const [state, setstate] = useState('pewpew')
+  const [appReady, setAppReady] = useState(false)
 
-  return <View>{/* <AppNavigation /> */}</View>
+  useEffect(() => {
+    SpotifyService.initializeClient().then(status => setAppReady(true))
+  }, [])
+
+  if (!appReady) return null
+
+  return (
+    <React.Fragment>
+      <Containers.ActiveAlarmModal />
+      <AppNavigation />
+    </React.Fragment>
+  )
 }
 
 export default AppRoot
