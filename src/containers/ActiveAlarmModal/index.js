@@ -41,14 +41,14 @@ const ActiveAlarmModal = ({ isAlarmActive, stopAlarm, playbackTrack }) => {
     if (isAlarmActive && value !== 0) {
       Animated.timing(animTopRef, {
         toValue: 0,
-        duration: 245,
-        easing: Easing.quad
+        duration: 500,
+        easing: Easing.cubic
       }).start()
     } else if (!isAlarmActive && value === 0) {
       Animated.timing(animTopRef, {
         toValue: -Metrics.height,
-        duration: 245,
-        easing: Easing.quad
+        duration: 350,
+        easing: Easing.cubic
       }).start()
     }
   }, [isAlarmActive])
@@ -59,6 +59,18 @@ const ActiveAlarmModal = ({ isAlarmActive, stopAlarm, playbackTrack }) => {
       <Animated.View style={[Styles.modalContainer, { top: animTopRef }]}>
         {!playbackTrack && (
           <LottieView resizeMode="cover" source={Animations.nightClouds} autoPlay loop />
+          //   resizeMode="cover"
+          //   source={Animations.djDesk}
+          //   style={[
+          //     StyleSheet.absoluteFill,
+          //     {
+          //       top: '15%',
+          //       height: Metrics.width
+          //     }
+          //   ]}
+          //   autoPlay
+          //   loop
+          // />
         )}
         <CurrentTimeDisplay style={{ container: Styles.timeDisplayContainer }} />
         {playbackTrack && <PlaybackTrack />}

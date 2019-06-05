@@ -1,13 +1,12 @@
-import { Colors, Metrics } from '../../config/Constants'
 import { NavigationActions, StackActions } from 'react-navigation'
-import React, { useEffect } from 'react'
 import { Text, View } from 'react-native'
 
+import Animations from '../../assets/animations'
 import { Button } from '../../components'
 import { Container } from '../../components'
-import FeatherIcon from 'react-native-vector-icons/Feather'
 import { GeneralActions } from '../../state'
-import Spotify from 'rn-spotify-sdk'
+import LottieView from 'lottie-react-native'
+import React from 'react'
 import Styles from './Styles'
 import { connect } from 'react-redux'
 
@@ -28,18 +27,27 @@ const Login = ({ navigation, loginRequest }) => {
 
   return (
     <Container vCenter hCenter>
-      <FeatherIcon name="speaker" size={Metrics.base * 12} color={Colors.primary} />
-      <Text style={Styles.instructionText}>
-        Please login with your Spotify profile to begin
-      </Text>
-      <Button
-        style={{
-          container: Styles.loginButtonContainer
-        }}
-        onPress={login}
-      >
-        Login Here
-      </Button>
+      <View style={Styles.upperContainer}>
+        <LottieView
+          source={Animations.pulsingWave}
+          autoPlay
+          loop
+          style={Styles.pulsingWave}
+        />
+      </View>
+      <View style={Styles.lowerContainer}>
+        <Text style={Styles.instructionText}>
+          Please login with your Spotify profile to begin
+        </Text>
+        <Button
+          style={{
+            container: Styles.loginButtonContainer
+          }}
+          onPress={login}
+        >
+          Click to Login
+        </Button>
+      </View>
     </Container>
   )
 }
