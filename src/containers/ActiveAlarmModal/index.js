@@ -12,6 +12,9 @@ import StopButton from './StopButton'
 import { connect } from 'react-redux'
 
 const Styles = StyleSheet.create({
+  playbackContainer: {
+    width: Metrics.width - Metrics.base * 4
+  },
   modalContainer: {
     position: 'absolute',
     left: 0,
@@ -24,7 +27,8 @@ const Styles = StyleSheet.create({
     paddingVertical: Metrics.height * 0.15
   },
   timeDisplayContainer: {
-    marginTop: Metrics.base * 2
+    marginTop: Metrics.base * 2,
+    marginBottom: Metrics.base * 4
   },
   stopButtonContainer: {
     marginTop: Metrics.base * 4
@@ -73,7 +77,13 @@ const ActiveAlarmModal = ({ isAlarmActive, stopAlarm, playbackTrack }) => {
           // />
         )}
         <CurrentTimeDisplay style={{ container: Styles.timeDisplayContainer }} />
-        {playbackTrack && <PlaybackTrack />}
+        {playbackTrack && (
+          <PlaybackTrack
+            style={{
+              container: Styles.playbackContainer
+            }}
+          />
+        )}
         <StopButton
           stopAlarm={stopAlarm}
           style={{ container: Styles.stopButtonContainer }}

@@ -6,7 +6,7 @@ import { connect } from 'react-redux'
 
 const PlaybackTrack = ({ style, playbackTrack: { imageUrl, trackName, artistName } }) => {
   return (
-    <View style={[Styles.container, style]}>
+    <View style={[Styles.container, style.container]}>
       <View style={Styles.trackImageContainer}>
         {imageUrl && <Image style={Styles.image} source={{ uri: imageUrl }} />}
       </View>

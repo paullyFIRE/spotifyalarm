@@ -10,11 +10,13 @@ export default StyleSheet.create({
   },
   trackNameText: {
     ...Fonts.primaryCaptionBold,
+    textAlign: 'center',
     color: Colors.white
   },
   trackArtistText: {
     ...Fonts.primaryCaptionBold,
     color: Colors.white,
+    textAlign: 'center',
     marginTop: Metrics.base
   },
   trackImageContainer: {
