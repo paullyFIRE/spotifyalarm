@@ -34,7 +34,7 @@ const Home = ({ updatePlaylists }) => {
           <Text style={Styles.welcomeText}>
             {`Welcome, `}
             <Text style={[Styles.welcomeText, Styles.welcomeTextHightlight]}>
-              {displayName} OKAY
+              {displayName}
             </Text>
           </Text>
         )}
