@@ -1,4 +1,3 @@
-// import * as Brightness from 'expo-brightness'
 import * as SpotifyApi from '../../state/SpotifyApi'
 
 import React, { useEffect, useState } from 'react'

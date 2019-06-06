@@ -1,3 +1,4 @@
+import { Animated, Easing, TouchableOpacity } from 'react-native'
 import { Colors, Metrics } from '../config/Constants'
 import { NavHeader, SimpleHeader } from '../components'
 import {
@@ -9,7 +10,6 @@ import {
 import Containers from '../containers'
 import FeatherIcon from 'react-native-vector-icons/Feather'
 import React from 'react'
-import { TouchableOpacity } from 'react-native'
 import { connect } from 'react-redux'
 
 const MoreMenuIcon = withNavigation(({ navigation }) => (
@@ -78,7 +78,38 @@ const authed = createStackNavigator(
     headerMode: 'screen',
     defaultNavigationOptions: () => ({
       header: NavHeader
-    })
+    }),
+    transitionConfig: () => {
+      return {
+        transitionSpec: {
+          duration: 750,
+          easing: Easing.out(Easing.poly(4)),
+          timing: Animated.timing,
+          useNativeDriver: true
+        },
+        screenInterpolator: sceneProps => {
+          const { layout, position, scene, index, scenes } = sceneProps
+
+          const thisSceneIndex = scene.index
+          const { initHeight, initWidth } = layout
+
+          const translateY = position.interpolate({
+            inputRange: [thisSceneIndex - 1, thisSceneIndex],
+            outputRange: [initHeight, 0]
+          })
+
+          const lastSceneIndex = scenes[scenes.length - 1].index
+
+          if (lastSceneIndex - index > 1) {
+            if (scene.index === index) return
+            if (scene.index !== lastSceneIndex) return { opacity: 0 }
+            return { transform: [{ translateY }] }
+          }
+
+          return { transform: [{ translateY }] }
+        }
+      }
+    }
   }
 )
 

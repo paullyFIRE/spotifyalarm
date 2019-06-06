@@ -46,7 +46,7 @@ const Timer = ({
 
       <DateTimePicker
         is24Hour
-        date={new Date()}
+        date={new Date(alarmTime)}
         disabled={true}
         mode="time"
         titleIOS="Select Alarm Time"

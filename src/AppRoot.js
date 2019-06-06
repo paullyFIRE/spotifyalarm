@@ -6,6 +6,8 @@ import CodePushConfig from './config/CodePush'
 import Containers from './containers'
 import { SpotifyService } from './services'
 
+import { View } from 'react-native'
+
 const AppRoot = () => {
   const [appReady, setAppReady] = useState(false)
 
