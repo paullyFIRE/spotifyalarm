@@ -5,7 +5,7 @@ import { GeneralActions, PersistedActions } from '../state'
 class PhoneService {
   initialBrightness = null
   alarmBrightness = 0.15
-  dimmBrightnessInterval = null
+  dimmBrightnessTimeout = null
   store = null
 
   constructor() {}
@@ -16,10 +16,14 @@ class PhoneService {
 
   alarmSleep = async () => {
     this.initialBrightness = await Brightness.getBrightnessAsync()
-    setTimeout(() => Brightness.setBrightnessAsync(0.15), 4500)
+    this.dimmBrightnessTimeout = setTimeout(
+      () => Brightness.setBrightnessAsync(0.15),
+      4500
+    )
   }
 
   alarmWakeOrCancel = async () => {
+    clearTimeout(this.dimmBrightnessTimeout)
     await Brightness.setBrightnessAsync(this.initialBrightness || 0.5)
   }
 }

@@ -49,7 +49,7 @@ const TrackList = ({ navigation, updateSelectedTrack, updateSelectedPlaylist }) 
       <Container style={Styles.container}>
         <SimpleHeader buttonLeftText="Playlists" />
         <TrackListHeader {...{ playlist, onPlaylistSelect }} />
-        <ScrollView>
+        <ScrollView contentContainerStyle={Styles.contentContainer}>
           {trackList.map(track => {
             return (
               <TouchableOpacity

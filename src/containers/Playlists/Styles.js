@@ -3,13 +3,14 @@ import { Colors, Fonts, Metrics } from '../../config/Constants'
 import { StyleSheet } from 'react-native'
 
 export default StyleSheet.create({
-  container: {
+  contentContainer: {
     paddingBottom: Metrics.base * 3
   },
   playlistContainer: {
     width: '100%',
     paddingHorizontal: Metrics.base * 2,
     padding: Metrics.base,
+    paddingBottom: Metrics.base / 2,
     flexDirection: 'row'
   },
   playlistImageContainer: {

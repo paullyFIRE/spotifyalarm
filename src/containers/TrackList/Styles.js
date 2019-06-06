@@ -6,6 +6,9 @@ export default StyleSheet.create({
   container: {
     paddingTop: Metrics.base * 6
   },
+  contentContainer: {
+    paddingBottom: Metrics.base * 3,
+  },
   trackItemContainer: {
     width: '100%',
     paddingHorizontal: Metrics.base * 2,
