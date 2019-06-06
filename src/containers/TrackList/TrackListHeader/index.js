@@ -14,7 +14,9 @@ const TrackListHeader = ({ playlist, onPlaylistSelect }) => {
       <View style={Styles.playlistInfoContainer}>
         <View>
           <Text style={Styles.playlistNameText}>{playlist.playlistName}</Text>
-          <Text style={Styles.trackNumbersText}>{`${playlist.totalTracks} songs`}</Text>
+          <Text style={Styles.trackNumbersText}>{`${playlist.totalTracks} ${
+            playlist.totalTracks > 1 ? 'songs' : 'song'
+          }`}</Text>
         </View>
         <TouchableOpacity
           disabled={!playlist || !onPlaylistSelect}

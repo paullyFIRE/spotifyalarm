@@ -10,8 +10,8 @@ const Playlists = ({ playlists, navigation }) => {
     playlist.playlistId && navigation.navigate('TrackList', { playlist })
 
   return (
-    <Container style={Styles.container}>
-      <ScrollView>
+    <Container>
+      <ScrollView contentContainerStyle={Styles.contentContainer}>
         {playlists.map((playlist, index) => {
           return (
             <TouchableOpacity
