@@ -38,6 +38,8 @@ target 'spotifyalarm' do
 
   use_unimodules!
 
+  pod 'RNScreens', :path => '../node_modules/react-native-screens'
+
   target 'spotifyalarmTests' do
     inherit! :search_paths
   end

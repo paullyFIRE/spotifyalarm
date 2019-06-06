@@ -10,7 +10,9 @@ import Store from './state/store'
 import { StyleSheet } from 'react-native'
 import { expoFontsConfig } from './config/Fonts'
 import { persistStore } from 'redux-persist'
+import { useScreens } from 'react-native-screens'
 
+useScreens()
 StyleSheet.setStyleAttributePreprocessor('fontFamily', Font.processFontFamily)
 
 const persistor = persistStore(Store)
