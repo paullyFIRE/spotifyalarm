@@ -1,4 +1,3 @@
-// import * as Brightness from 'expo-brightness'
 import * as SpotifyApi from '../../state/SpotifyApi'
 
 import React, { useEffect, useState } from 'react'
@@ -35,7 +34,7 @@ const Home = ({ updatePlaylists }) => {
           <Text style={Styles.welcomeText}>
             {`Welcome, `}
             <Text style={[Styles.welcomeText, Styles.welcomeTextHightlight]}>
-              {displayName}
+              {displayName} OKAY
             </Text>
           </Text>
         )}

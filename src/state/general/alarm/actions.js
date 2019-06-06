@@ -1,4 +1,5 @@
-import { AlarmTimerService } from '../../../services'
+import { AlarmTimerService, PhoneService } from '../../../services'
+
 import { GeneralActions } from '../..'
 
 export const START_ALARM = 'START_ALARM'
@@ -24,6 +25,7 @@ export const startAlarm = payload => dispatch => {
   })
 
   AlarmTimerService.startAlarm()
+  PhoneService.alarmSleep()
 }
 
 export const stopAlarm = payload => dispatch => {
@@ -34,9 +36,11 @@ export const stopAlarm = payload => dispatch => {
 
   dispatch(GeneralActions.stopPlayback())
   AlarmTimerService.stopAlarm()
+  PhoneService.alarmWakeOrCancel()
 }
 
 export const triggerAlarm = payload => dispatch => {
   dispatch({ type: TRIGGER_ALARM, payload })
   dispatch(GeneralActions.startPlayback())
+  PhoneService.alarmWakeOrCancel()
 }
