@@ -1,17 +1,17 @@
 import ActiveAlarmModal from './ActiveAlarmModal'
-import FontsPreview from './FontsPreview'
 import Home from './Home'
 import Login from './Login'
 import MenuMore from './MenuMore'
 import Playlists from './Playlists'
 import TrackList from './TrackList'
+import WelcomeWalkthrough from './WelcomeWalkthrough'
 
 export default {
-  FontsPreview,
-  Login,
   Home,
   Playlists,
+  Login,
   TrackList,
   MenuMore,
-  ActiveAlarmModal
+  ActiveAlarmModal,
+  WelcomeWalkthrough
 }
