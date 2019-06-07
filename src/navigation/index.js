@@ -73,7 +73,7 @@ const Authed = createStackNavigator(
     defaultNavigationOptions: () => ({
       header: NavHeader
     }),
-    transitionConfig: NavigationAnimations.SlideInUp()
+    transitionConfig: NavigationAnimations.HomeAnimations()
   }
 )
 

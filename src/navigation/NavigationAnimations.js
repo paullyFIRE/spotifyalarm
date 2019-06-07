@@ -24,7 +24,6 @@ export const SlideInUp = ({ transitionSpec = {} } = {}) => () => {
 
       if (lastSceneIndex - index > 1) {
         if (scene.index === index) return
-        if (scene.index !== lastSceneIndex) return { opacity: 0 }
         return { transform: [{ translateY }] }
       }
 
@@ -66,3 +65,14 @@ export const FadeInOut = ({
     backgroundColor
   }
 })
+
+export const HomeAnimations = props => ({ scene, scenes }) => {
+  const thisRoute = scene.route.routeName
+  const lastRoute = scenes[scenes.length - 1].route.routeName
+
+  if (thisRoute === 'MenuMore' || lastRoute === 'MenuMore') {
+    return null
+  }
+
+  return SlideInUp(props)()
+}
