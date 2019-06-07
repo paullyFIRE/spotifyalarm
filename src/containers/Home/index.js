@@ -17,7 +17,7 @@ const Home = ({ updatePlaylists }) => {
   useEffect(() => {
     async function getPlaylists() {
       const user = await SpotifyApi.getUser()
-      setDisplayName(user.display_name)
+      setDisplayName(user.displayName)
       setUserId(user.id)
 
       const playlists = await SpotifyApi.getUserPlaylists()

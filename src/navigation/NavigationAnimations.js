@@ -12,11 +12,11 @@ export const SlideInUp = ({ transitionSpec = {} } = {}) => () => {
     screenInterpolator: sceneProps => {
       const { layout, position, scene, index, scenes } = sceneProps
 
-      const thisSceneIndex = scene.index
+      const thisIndex = scene.index
       const { initHeight, initWidth } = layout
 
       const translateY = position.interpolate({
-        inputRange: [thisSceneIndex - 1, thisSceneIndex],
+        inputRange: [thisIndex - 1, thisIndex],
         outputRange: [initHeight, 0]
       })
 
@@ -45,7 +45,6 @@ export const FadeInOut = ({
     useNativeDriver: true
   },
   screenInterpolator: sceneProps => {
-    console.log('sceneProps: ', sceneProps)
     const { position, scene, scenes, index: toIndex } = sceneProps
 
     const thisIndex = scene.index
