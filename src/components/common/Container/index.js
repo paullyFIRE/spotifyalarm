@@ -1,6 +1,6 @@
-import { Colors, Fonts, Metrics } from '../../../config/Constants'
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, TouchableOpacity, View } from 'react-native'
 
+import { Colors } from '../../../config/Constants'
 import React from 'react'
 
 const Styles = StyleSheet.create({
@@ -16,14 +16,34 @@ const Styles = StyleSheet.create({
   }
 })
 
-const Container = ({ style = {}, vCenter = false, hCenter = false, children }) => {
+const Container = ({
+  style = {},
+  vCenter = false,
+  hCenter = false,
+  children,
+  onPress = null,
+  isAnimated = false,
+  ...props
+}) => {
   const containerStyle = [
     Styles.container,
     vCenter && Styles.vCenter,
     hCenter && Styles.hCenter,
     style
   ]
-  return <View style={containerStyle}>{children}</View>
+
+  if (!onPress) return <View style={containerStyle}>{children}</View>
+
+  return (
+    <TouchableOpacity
+      activeOpacity={1}
+      style={containerStyle}
+      onPress={onPress}
+      {...props}
+    >
+      {children}
+    </TouchableOpacity>
+  )
 }
 
 export default Container

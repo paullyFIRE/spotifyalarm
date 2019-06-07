@@ -64,9 +64,9 @@ const MenuMore = ({ navigation, logout }) => {
       )
     },
     {
-      title: 'Debug',
+      title: 'Walkthrough',
       onPress: () => {
-        navigation.navigate('FontsPreview')
+        navigation.navigate('WelcomeWalkthrough')
       },
       renderIcon: () => (
         <FontAwesome5Icon
