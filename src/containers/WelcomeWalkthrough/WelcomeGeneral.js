@@ -19,7 +19,8 @@ const Styles = StyleSheet.create({
   welcomeText: {
     ...Fonts.primaryHeadingBold,
     color: Colors.white,
-    textAlign: 'center'
+    textAlign: 'center',
+    lineHeight: Fonts.primaryHeadingBold.fontSize * 1.5
   },
   welcomeTextHighlight: {
     color: Colors.primary
@@ -46,7 +47,7 @@ const WelcomeGeneral = ({ navigation }) => {
     Animated.timing(fadeInDriver, {
       toValue: 1,
       duration: 450,
-      delay: 2500,
+      delay: 2750,
       easing: Easing.quad
     }).start()
   }, [])
@@ -74,11 +75,11 @@ const WelcomeGeneral = ({ navigation }) => {
           </Text>
           <Text style={Styles.bodyText}>
             After logging in, you'll soon be on your way to waking up to your favourite
-            tunes.
+            tunes
           </Text>
           <Text style={Styles.bodyText}>
             Please tap to{' '}
-            <Text style={[Styles.bodyText, Styles.welcomeTextHighlight]}>begin</Text>.
+            <Text style={[Styles.bodyText, Styles.welcomeTextHighlight]}>begin</Text>
           </Text>
         </TouchableOpacity>
       </Animated.View>

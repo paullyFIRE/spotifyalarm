@@ -33,7 +33,7 @@ const WelcomeWakeUp = ({ navigation }) => (
   >
     <Text style={Styles.welcomeText}>
       Sleep well and wake up feeling{' '}
-      <Text style={[Styles.welcomeText, Styles.welcomeTextHighlight]}>refreshed.</Text>
+      <Text style={[Styles.welcomeText, Styles.welcomeTextHighlight]}>refreshed</Text>
     </Text>
     <LottieView
       resizeMode="cover"

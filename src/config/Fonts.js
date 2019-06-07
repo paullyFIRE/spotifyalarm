@@ -21,6 +21,7 @@ const baseFonts = [
 
 const fontSizes = {
   jumbo: 68,
+  bigHeading: 36,
   heading: 32,
   subheading: 28,
   body: 24,

@@ -7,9 +7,11 @@ import musicPlayer from './musicPlayer.json'
 import nightClouds from './night-clouds.json'
 import pulsingWave from './pulsingWave.json'
 import selectPlaylist from './selectPlaylist.json'
+import smileySuccess from './smileySuccess.json'
 
 export default {
   selectPlaylist,
+  smileySuccess,
   musicPlayer,
   nightClouds,
   funkyChicken,

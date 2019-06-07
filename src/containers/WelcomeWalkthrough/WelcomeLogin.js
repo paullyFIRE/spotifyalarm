@@ -34,14 +34,14 @@ const WelcomeLogin = ({ navigation }) => (
     <Text style={Styles.welcomeText}>
       First, log in to your{' '}
       <Text style={[Styles.welcomeText, Styles.welcomeTextHighlight]}>Spotify</Text>{' '}
-      premium profile.
+      premium profile
     </Text>
     <LottieView
       resizeMode="center"
       source={Animations.loginFingerprint}
       autoPlay
       loop
-      speed={0.75}
+      speed={0.65}
       style={Styles.animation}
     />
   </Container>

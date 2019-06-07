@@ -30,8 +30,8 @@ export const getUser = async () => {
     const user = await Spotify.getMe()
     if (!user) throw new Error('Error retrieving user.')
 
-    const { display_name, country, images, id } = user
-    const payload = { display_name, country, images, id }
+    const { display_name: displayName, country, images, id } = user
+    const payload = { displayName, country, images, id }
 
     if (!images.length) delete payload.images
     return Promise.resolve(payload)

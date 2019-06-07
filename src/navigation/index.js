@@ -10,10 +10,10 @@ import {
 
 import Containers from '../containers'
 import FeatherIcon from 'react-native-vector-icons/Feather'
+import Login from './Login'
 import React from 'react'
 import { TouchableOpacity } from 'react-native'
 import WelcomeWalkthrough from './WelcomeWalkthrough'
-import { connect } from 'react-redux'
 
 const MoreMenuIcon = withNavigation(({ navigation }) => (
   <TouchableOpacity onPress={() => navigation.navigate('MenuMore')}>
@@ -21,27 +21,22 @@ const MoreMenuIcon = withNavigation(({ navigation }) => (
   </TouchableOpacity>
 ))
 
-const unAuthed = createStackNavigator(
+const UnAuthed = createStackNavigator(
   {
     WelcomeWalkthrough,
-    Login: {
-      screen: Containers.Login,
-      navigationOptions: () => ({
-        title: "Let's do this",
-        header: NavHeader
-      })
-    }
+    Login
   },
   {
     initialRouteName: 'WelcomeWalkthrough',
     headerMode: 'screen',
     defaultNavigationOptions: {
       header: null
-    }
+    },
+    transitionConfig: NavigationAnimations.FadeInOut()
   }
 )
 
-const authed = createStackNavigator(
+const Authed = createStackNavigator(
   {
     Home: {
       screen: Containers.Home,
@@ -78,25 +73,26 @@ const authed = createStackNavigator(
     defaultNavigationOptions: () => ({
       header: NavHeader
     }),
-    transitionConfig: NavigationAnimations.SlideInUp()
+    transitionConfig: NavigationAnimations.HomeAnimations()
   }
 )
 
-const RootNavigation = ({ authExpireTime }) => {
-  const isAuthValid = authExpireTime && new Date(authExpireTime) > new Date()
-  const initialRoute = isAuthValid ? 'Authed' : 'UnAuthed'
-
+const RootNavigation = () => {
   const Root = createAppContainer(
     createStackNavigator(
       {
-        Authed: authed,
-        UnAuthed: unAuthed
+        Entry: Containers.Entry,
+        Authed,
+        UnAuthed
       },
       {
-        initialRouteName: initialRoute,
+        initialRouteName: 'Entry',
         defaultNavigationOptions: {
           header: null
-        }
+        },
+        transitionConfig: NavigationAnimations.FadeInOut({
+          transitionSpec: { duration: 550 }
+        })
       }
     )
   )
@@ -104,8 +100,4 @@ const RootNavigation = ({ authExpireTime }) => {
   return <Root />
 }
 
-const mapStateToProps = state => ({
-  authExpireTime: state.persisted.auth.expireTime
-})
-
-export default connect(mapStateToProps)(RootNavigation)
+export default RootNavigation

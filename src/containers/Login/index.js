@@ -1,4 +1,3 @@
-import { NavigationActions, StackActions } from 'react-navigation'
 import React, { useEffect, useState } from 'react'
 import { Text, View } from 'react-native'
 
@@ -13,18 +12,21 @@ import { connect } from 'react-redux'
 // TODO: add error handling UI for when login fails.
 // TODO: Have a transition to a welcome screen - fade in/out, saying Hi.
 
-const Login = ({ navigation, loginRequest, refreshToken }) => {
+const Login = ({ navigation, loginRequest, refreshToken, getUserRequest }) => {
   const [shouldRender, setShouldRender] = useState(false)
 
-  const login = () =>
-    loginRequest().then(() =>
-      navigation.dispatch(
-        StackActions.reset({
-          index: 0,
-          actions: [NavigationActions.navigate({ routeName: 'Authed' })]
-        })
-      )
-    )
+  const getUser = async () => {
+    try {
+      const { displayName } = await getUserRequest()
+      navigation.navigate('LoginSuccess', {
+        displayName
+      })
+    } catch (err) {
+      navigation.navigate('Authed')
+    }
+  }
+
+  const login = () => loginRequest().then(getUser)
 
   useEffect(() => {
     if (!shouldRender && refreshToken) {
@@ -60,7 +62,7 @@ const Login = ({ navigation, loginRequest, refreshToken }) => {
             </Button>
           </React.Fragment>
         ) : (
-          <Text style={Styles.instructionText}>Loading...</Text>
+          <Text style={[Styles.instructionText, Styles.loadingText]}>Loading...</Text>
         )}
       </View>
     </Container>
@@ -72,7 +74,8 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  loginRequest: payload => dispatch(GeneralActions.loginRequest(payload))
+  loginRequest: payload => dispatch(GeneralActions.loginRequest(payload)),
+  getUserRequest: payload => dispatch(GeneralActions.getUserRequest(payload))
 })
 
 export default connect(

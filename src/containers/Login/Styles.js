@@ -10,6 +10,9 @@ export default StyleSheet.create({
     marginTop: Metrics.base * 4,
     marginBottom: Metrics.base * 6
   },
+  loadingText: {
+    ...Fonts.primarySubheadingBold
+  },
   loginButtonContainer: {
     marginBottom: Metrics.base * 8
   },

@@ -33,8 +33,10 @@ const WelcomePlaylist = ({ navigation }) => (
   >
     <Text style={Styles.welcomeText}>
       Select your favourite{' '}
-      <Text style={[Styles.welcomeText, Styles.welcomeTextHighlight]}>playlist</Text>, or
-      that special song you'd love to wake up to.
+      <Text style={[Styles.welcomeText, Styles.welcomeTextHighlight]}>playlist</Text> or
+      that special song you would{' '}
+      <Text style={[Styles.welcomeText, Styles.welcomeTextHighlight]}>love</Text> to wake
+      up to
     </Text>
     <LottieView
       resizeMode="cover"
