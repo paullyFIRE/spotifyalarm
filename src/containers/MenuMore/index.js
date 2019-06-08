@@ -63,20 +63,20 @@ const MenuMore = ({ navigation, logout }) => {
         />
       )
     },
-    {
-      title: 'Walkthrough',
-      onPress: () => {
-        navigation.navigate('WelcomeWalkthrough')
-      },
-      renderIcon: () => (
-        <FontAwesome5Icon
-          name="tools"
-          color={Colors.white}
-          size={24}
-          style={Styles.icon}
-        />
-      )
-    },
+    // {
+    //   title: 'Walkthrough',
+    //   onPress: () => {
+    //     navigation.navigate('WelcomeWalkthrough')
+    //   },
+    //   renderIcon: () => (
+    //     <FontAwesome5Icon
+    //       name="tools"
+    //       color={Colors.white}
+    //       size={24}
+    //       style={Styles.icon}
+    //     />
+    //   )
+    // },
     {
       title: 'Logout',
       onPress: async () => {
@@ -85,7 +85,8 @@ const MenuMore = ({ navigation, logout }) => {
       },
       renderIcon: () => (
         <Anticon name="logout" color={Colors.white} size={24} style={Styles.icon} />
-      )
+      ),
+      enabled: true
     }
   ]
 
@@ -93,8 +94,9 @@ const MenuMore = ({ navigation, logout }) => {
     <Container>
       {menuConfig.map(menuItem => (
         <TouchableOpacity
+          activeOpacity={!menuItem.enabled ? 0.5 : 0.4}
           key={menuItem.title}
-          style={Styles.menuButton}
+          style={[Styles.menuButton, !menuItem.enabled && { opacity: 0.5 }]}
           onPress={menuItem.onPress}
         >
           {menuItem.renderIcon && menuItem.renderIcon()}

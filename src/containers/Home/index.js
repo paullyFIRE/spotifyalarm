@@ -11,15 +11,8 @@ import Timer from './Timer'
 import { connect } from 'react-redux'
 
 const Home = ({ updatePlaylists }) => {
-  const [displayName, setDisplayName] = useState('')
-  const [userId, setUserId] = useState(null)
-
   useEffect(() => {
     async function getPlaylists() {
-      const user = await SpotifyApi.getUser()
-      setDisplayName(user.displayName)
-      setUserId(user.id)
-
       const playlists = await SpotifyApi.getUserPlaylists()
       updatePlaylists(playlists)
     }
@@ -29,17 +22,6 @@ const Home = ({ updatePlaylists }) => {
 
   return (
     <Container vCenter hCenter style={Styles.container}>
-      <View style={Styles.textContainer}>
-        {!!displayName && (
-          <Text style={Styles.welcomeText}>
-            {`Welcome, `}
-            <Text style={[Styles.welcomeText, Styles.welcomeTextHightlight]}>
-              {displayName}
-            </Text>
-          </Text>
-        )}
-        {!!displayName && <Text style={Styles.idText}>{`User ID: ${userId}`}</Text>}
-      </View>
       <View style={Styles.secondaryContainer}>
         <Timer />
         <SelectedSong />
