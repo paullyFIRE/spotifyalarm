@@ -8,15 +8,7 @@ import Styles from './Styles'
 import { connect } from 'react-redux'
 import moment from 'moment'
 
-const Timer = ({
-  startAlarm,
-  stopAlarm,
-  updateAlarmTime,
-  alarmTime,
-  selectedTrack,
-  selectedPlaylist,
-  isAlarmActive
-}) => {
+const Timer = ({ updateAlarmTime, alarmTime, isAlarmActive, style = {} }) => {
   const [timePickerModalVisible, setTimePickerModalVisible] = useState(false)
 
   const handleDatePicked = date => {
@@ -26,7 +18,7 @@ const Timer = ({
 
   return (
     <React.Fragment>
-      <View style={Styles.container}>
+      <View style={[Styles.container, style.container]}>
         <TouchableOpacity
           onPress={() => {
             if (isAlarmActive) return null
@@ -34,13 +26,6 @@ const Timer = ({
           }}
         >
           <Text style={Styles.timerText}>{moment(alarmTime).format('HH:mm')}</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          disabled={!selectedTrack && !selectedPlaylist}
-          style={Styles.startButton}
-          onPress={startAlarm}
-        >
-          <Text style={Styles.startButtonText}>Start</Text>
         </TouchableOpacity>
       </View>
 
@@ -76,14 +61,11 @@ const Timer = ({
 
 const mapStateToProps = state => ({
   alarmTime: state.persisted.alarm.alarmTime,
-  isAlarmActive: state.general.alarm.isAlarmActive,
-  selectedTrack: state.persisted.alarm.selectedTrack,
-  selectedPlaylist: state.persisted.alarm.selectedPlaylist
+  isAlarmActive: state.general.alarm.isAlarmActive
 })
 
 const mapDispatchToProps = dispatch => ({
   startAlarm: payload => dispatch(GeneralActions.startAlarm(payload)),
-  stopAlarm: payload => dispatch(GeneralActions.stopAlarm(payload)),
   updateAlarmTime: payload => dispatch(PersistedActions.updateAlarmTime(payload))
 })
 

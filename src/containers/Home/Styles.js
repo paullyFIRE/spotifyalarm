@@ -1,4 +1,4 @@
-import { Colors, Fonts, Metrics } from '../../config/Constants'
+import { Colors, Fonts, Helpers, Metrics } from '../../config/Constants'
 
 import { StyleSheet } from 'react-native'
 
@@ -16,7 +16,8 @@ export default StyleSheet.create({
     justifyContent: 'space-around',
     alignItems: 'center',
     width: '100%',
-    flex: 3
+    flex: 3,
+    paddingBottom: Metrics.height * (Helpers.isIphoneX ? 0.2 : 0.05)
   },
   welcomeText: {
     ...Fonts.primarySubheadingBold,
