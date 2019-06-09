@@ -5,7 +5,7 @@ import { StyleSheet } from 'react-native'
 export default StyleSheet.create({
   container: {
     justifyContent: 'space-around',
-    paddingBottom: Metrics.base * 8
+    paddingBottom: Metrics.base * 8,
   },
   textContainer: {
     flex: 1,
