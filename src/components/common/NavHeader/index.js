@@ -33,7 +33,7 @@ const NavHeader = ({ scene, scenes, ...props }) => {
   return (
     <View style={Styles.container}>
       <StatusBar barStyle="light-content" />
-      {renderTop && renderTop()}
+      {(renderTop && renderTop()) || <View style={{ height: Metrics.base * 3.5 }} />}
       <View style={Styles.headerContainer}>
         <Text style={Styles.titleText}>{title}</Text>
         {headerRight && headerRight()}

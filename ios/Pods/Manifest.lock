@@ -43,6 +43,9 @@ PODS:
     - React
   - React (0.58.6):
     - React/Core (= 0.58.6)
+  - react-native-fast-image (6.0.3):
+    - React
+    - SDWebImage (~> 5.0)
   - React/Core (0.58.6):
     - yoga (= 0.58.6.React)
   - React/CxxBridge (0.58.6):
@@ -101,6 +104,9 @@ PODS:
     - RNEventEmitter
   - RNVectorIcons (6.4.2):
     - React
+  - SDWebImage (5.0.5):
+    - SDWebImage/Core (= 5.0.5)
+  - SDWebImage/Core (5.0.5)
   - SSZipArchive (2.2.2)
   - UMBarCodeScannerInterface (1.0.0)
   - UMCameraInterface (1.0.0)
@@ -134,6 +140,7 @@ DEPENDENCIES:
   - glog (from `../node_modules/react-native/third-party-podspecs/glog.podspec`)
   - lottie-ios (from `../node_modules/lottie-ios`)
   - lottie-react-native (from `../node_modules/lottie-react-native`)
+  - react-native-fast-image (from `../node_modules/react-native-fast-image`)
   - React/Core (from `../node_modules/react-native`)
   - React/CxxBridge (from `../node_modules/react-native`)
   - React/DevSupport (from `../node_modules/react-native`)
@@ -174,6 +181,7 @@ SPEC REPOS:
     - Base64
     - boost-for-react-native
     - JWT
+    - SDWebImage
     - SSZipArchive
 
 EXTERNAL SOURCES:
@@ -214,6 +222,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/lottie-react-native"
   React:
     :path: "../node_modules/react-native"
+  react-native-fast-image:
+    :path: "../node_modules/react-native-fast-image"
   RNEventEmitter:
     :path: "../node_modules/react-native-events"
   RNGestureHandler:
@@ -284,11 +294,13 @@ SPEC CHECKSUMS:
   lottie-ios: d699fdee68d7b63e721d949388b015fef1aaa4ac
   lottie-react-native: 3d8181d43619b1fe804c828bd5a09d20fe8bdea7
   React: 130b87b2d5e2baac646954282cab87be986d98fc
+  react-native-fast-image: 3390cc968d598f0c6b5c710df138f4b653a87231
   RNEventEmitter: db22b54ae7d9be0bd5725613f79a51e2bc364a93
   RNGestureHandler: 5329a942fce3d41c68b84c2c2276ce06a696d8b0
   RNScreens: 720a9e6968beb73e8196239801e887d8401f86ed
   RNSpotify: 54ebe44c6b3f87886205e87f151fed19cef4802d
   RNVectorIcons: 6607bd3a30291d0edb56f9bbe7ae411ee2b928b0
+  SDWebImage: f86b0a0713195d1c734335d010697d44af10d165
   SSZipArchive: fa16b8cc4cdeceb698e5e5d9f67e9558532fbf23
   UMBarCodeScannerInterface: 53fd3cbf24fe5c58f3ba82ac8c27f0373fbf52fa
   UMCameraInterface: d5a2727e76d6b47e3201f863102c055ddbcc6206
@@ -304,6 +316,6 @@ SPEC CHECKSUMS:
   UMTaskManagerInterface: f88793bd35248182e15591e0aa5b045132312be0
   yoga: 32d7ef1081951e9a35a4c72a7be797598b138a48
 
-PODFILE CHECKSUM: 9b1d6594beb184ab8ed03ec3a95e82f1f540d2a1
+PODFILE CHECKSUM: 1c50d0c9be75d2df197553a04b2d2d9992a13589
 
 COCOAPODS: 1.7.1

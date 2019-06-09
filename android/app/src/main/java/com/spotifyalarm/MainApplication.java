@@ -3,6 +3,7 @@ package com.spotifyalarm;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.dylanvann.fastimage.FastImageViewPackage;
 import com.swmansion.rnscreens.RNScreensPackage;
 import com.airbnb.android.react.lottie.LottiePackage;
 import com.spotify.sdk.android.authentication.RNSpotifyPackage;
@@ -42,6 +43,7 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new FastImageViewPackage(),
             new RNScreensPackage(),
             new LottiePackage(),
             new RNSpotifyPackage(),

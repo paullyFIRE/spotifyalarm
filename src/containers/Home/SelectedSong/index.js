@@ -1,5 +1,6 @@
 import { Image, Text, TouchableOpacity, View } from 'react-native'
 
+import RNFastImage from 'react-native-fast-image'
 import React from 'react'
 import Styles from './Styles'
 import { compose } from 'redux'
@@ -10,7 +11,7 @@ const SelectedSong = ({ style, navigation, selectedTrack, selectedPlaylist }) =>
   const renderTrack = () => (
     <View style={Styles.rowContainer}>
       <View style={Styles.trackImageContainer}>
-        <Image style={Styles.image} source={{ uri: selectedTrack.imageUrl }} />
+        <RNFastImage style={Styles.image} source={{ uri: selectedTrack.imageUrl }} />
       </View>
       <View style={Styles.trackTextContainer}>
         <Text style={Styles.trackText}>{selectedTrack.trackName}</Text>
@@ -23,7 +24,7 @@ const SelectedSong = ({ style, navigation, selectedTrack, selectedPlaylist }) =>
   const renderPlaylist = () => (
     <View style={Styles.rowContainer}>
       <View style={Styles.trackImageContainer}>
-        <Image
+        <RNFastImage
           style={Styles.image}
           source={{ uri: selectedPlaylist.playlistImageURL || '' }}
         />

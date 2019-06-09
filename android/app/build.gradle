@@ -139,6 +139,7 @@ android {
 }
 
 dependencies {
+    implementation project(':react-native-fast-image')
     implementation project(':react-native-screens')
     implementation project(':lottie-react-native')
     implementation project(':rn-spotify-sdk')

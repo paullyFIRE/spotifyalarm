@@ -61,9 +61,10 @@ const TrackList = ({ navigation, updateSelectedTrack, updateSelectedPlaylist }) 
                   <Image style={Styles.image} source={{ uri: track.imageUrl }} />
                 </View>
                 <View style={Styles.trackInfoContainer}>
-                  <Text style={Styles.trackInfoText}>
-                    {`${track.trackName} - ${track.artistName} ${track.albumName}`}
-                  </Text>
+                  <Text style={[Styles.trackInfoText, Styles.trackInfoTextBold]}>{`${
+                    track.trackName
+                  }`}</Text>
+                  <Text style={Styles.trackInfoText}>{`${track.artistName}`}</Text>
                 </View>
               </TouchableOpacity>
             )

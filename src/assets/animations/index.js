@@ -5,6 +5,7 @@ import funkyChicken from './funkyChicken.json'
 import loginFingerprint from './loginFingerprint'
 import musicPlayer from './musicPlayer.json'
 import nightClouds from './night-clouds.json'
+import pulsingCircles from './pulsingCircles.json'
 import pulsingWave from './pulsingWave.json'
 import selectPlaylist from './selectPlaylist.json'
 import smileySuccess from './smileySuccess.json'
@@ -19,5 +20,6 @@ export default {
   djDesk,
   dancingDino,
   loginFingerprint,
-  dayNightToggle
+  dayNightToggle,
+  pulsingCircles
 }

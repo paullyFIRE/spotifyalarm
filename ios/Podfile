@@ -36,9 +36,10 @@ target 'spotifyalarm' do
   pod 'appcenter', path: '../node_modules/appcenter/ios'
   pod 'CodePush', :path => '../node_modules/react-native-code-push'
 
-  use_unimodules!
-
   pod 'RNScreens', :path => '../node_modules/react-native-screens'
+  pod 'react-native-fast-image', :path => '../node_modules/react-native-fast-image'
+
+  use_unimodules!
 
   target 'spotifyalarmTests' do
     inherit! :search_paths
