@@ -1,6 +1,7 @@
 import { Colors, Fonts, Metrics } from '../../../config/Constants'
 import { StyleSheet, Text, TouchableOpacity } from 'react-native'
 
+import { GeneralActions } from '../../../state'
 import React from 'react'
 import { connect } from 'react-redux'
 
