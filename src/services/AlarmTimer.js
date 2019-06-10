@@ -20,17 +20,27 @@ class AlarmTimerService {
     }
 
     const current = moment()
-    const alarmTime = moment(this.alarmTime).seconds(0)
+    const alarmTime = moment(this.alarmTime)
+    const alarmMinutes = alarmTime.minutes()
+    const alarmHours = alarmTime.hours()
 
-    if (alarmTime.isBefore(current)) {
-      alarmTime.add(1, 'days')
-    }
+    const isNextDayAlarm =
+      alarmHours < current.hours() ||
+      (alarmHours === current.hours() && alarmMinutes < current.minutes())
 
-    return alarmTime.diff(current, 'seconds')
+    const newAlarm = moment()
+      .minutes(alarmMinutes)
+      .hours(alarmHours)
+      .seconds(0)
+
+    if (isNextDayAlarm) newAlarm.add(1, 'days')
+
+    return newAlarm.diff(current, 'seconds')
   }
 
   startAlarm = async () => {
     const alarmTimeout = this.calculateTimeToAlarm()
+    console.log('alarmTimeout: ', alarmTimeout)
 
     this.alarmInverval = setTimeout(() => {
       this.store.dispatch(GeneralActions.triggerAlarm())
